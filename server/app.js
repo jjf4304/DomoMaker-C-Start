@@ -34,17 +34,17 @@ let redisURL = {
   port: '10607',
 };
 
-let redisPass = 'YAi8R174DJf3efz296zlOhABoCupDeNv';
+let redisPASS = 'YAi8R174DJf3efz296zlOhABoCupDeNv';
 
 if (process.env.REDISCLOUD_URL) {
   redisURL = url.parse(process.env.REDISCLOUD_URL);
-  [, redisPass] = redisURL.auth.split(':');
+  [, redisPASS] = redisURL.auth.split(':');
 }
 
 const redisClient = redis.createClient({
   host: redisURL.hostname,
   port: redisURL.port,
-  password: redisPass,
+  password: redisPASS,
 });
 
 const router = require('./router.js');
